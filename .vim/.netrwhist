@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/linuxer'
+let g:netrw_dirhist_2='/home/linuxer/PycharmProjects'
+let g:netrw_dirhist_3='/home/linuxer/PycharmProjects/BWINF_Runde2'
+let g:netrw_dirhist_4='/home/linuxer/PycharmProjects/BWINF_Runde2/Implementierungen'
+let g:netrw_dirhist_5='/home/linuxer/PycharmProjects/BWINF_Runde2/Implementierungen/a1-Lisa_rennt'
