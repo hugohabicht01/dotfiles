@@ -11,12 +11,30 @@
 
 #Window look
 
-for_window [class="^.*"] border pixel 0
-gaps inner 15
-gaps outer 15
+for_window [class="^.*"] border pixel 2 
+#gaps inner 30
+#gaps outer 15
+
+gaps inner 5 
+gaps outer 5
+
+#Border color
+
+set_from_resource $fg i3wm.color7 #149dff
+set_from_resource $bg i3wm.color0 #f0f0f0
+set_from_resource $pr i3wm.color4 #149dff 
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $pr       $pr
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background $bg
 
 set $mod Mod1
-
+set $sup Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
@@ -38,14 +56,14 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec st
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec gnome-terminal
 
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -53,9 +71,12 @@ bindsym $mod+d exec dmenu_run
 
 #Own Shortcuts
 
-bindsym $mod+z	gaps outer current plus 5
+bindsym $mod+d		exec rofi -show drun
+bindsym $mod+z		gaps outer current plus 5
 bindsym $mod+Shift+z	gaps outer current minus 5
-
+bindsym $mod+y		gaps inner current plus 5
+bindsym $mod+Shift+y	gaps inner current minus 5
+bindsym $mod+Shift+d	exec rofi -show run
 
 #Audio shortcuts
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
@@ -64,10 +85,10 @@ bindsym XF86AudioMute exec amixer -q set Master mute
 
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -88,10 +109,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Shift+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Shift+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -165,10 +186,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -186,14 +207,15 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+#bar {
+#        status_command i3status
+#}
 
 
 
 #Startup snippets
 
+exec xcompmgr -o -C
 exec feh --bg-scale /home/linuxer/Bilder/ArchLinux-Mountains.png
-#exec --no-startup-id compton
-exec xcompmgr
+exec setxkbmap -layout de 
+exec polybar example &
