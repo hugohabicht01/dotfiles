@@ -68,7 +68,7 @@ font-4 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular;0
 
 modules-left = i3
 ;modules-center = powermenu
-modules-center = spotify prev playpause next
+;modules-center = spotify prev playpause next
 ;modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 ;modules-right = filesystem xbacklight alsa pulseaudio memory cpu wlan eth battery temperature date powermenu
 modules-right = xbacklight alsa pulseaudio memory cpu wlan eth temperature date 
