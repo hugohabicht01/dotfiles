@@ -19,8 +19,12 @@ My i3-gaps dotfiles
 * ranger
 * xcompmgr(although  I also have compton configs)
 * rofi as application starter
-* dmenu (if you want to use some features of my terminal)
 * and of course i3-gaps
+### Optional dependencies
+* dmenu (if you want to use some features of my terminal)
+* spotify and [spotifycli](https://github.com/pwittchen/spotify-cli-linux)
+* audacious
+
 ## Required files:
 * [Luke Smiths wallpaper Repo](https://github.com/LukeSmithxyz/wallpapers)
 * A powerline patched font
