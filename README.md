@@ -1,6 +1,9 @@
 # dotfiles
 My i3-gaps dotfiles
 
+## Screenshot
+![Screenshot](https://github.com/hugohabicht01/dotfiles/blob/master/2019-07-30-120501_1920x1080_scrot.png)
+
 ## Features
 * gruvbox like colorscheme
 * configured polybar with solarized like colorscheme
