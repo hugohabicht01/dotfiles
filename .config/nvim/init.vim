@@ -9,6 +9,9 @@ Plug 'shirohana/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'lifepillar/vim-solarized8'
 Plug 'mboughaba/i3config.vim'
+Plug 'chaoren/vim-wordmotion'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vifm/vifm.vim'
 call plug#end()
 
 set shell=/bin/bash
