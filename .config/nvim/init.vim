@@ -8,6 +8,7 @@ Plug 'tpope/vim-surround'
 Plug 'shirohana/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'lifepillar/vim-solarized8'
+Plug 'mboughaba/i3config.vim'
 call plug#end()
 
 set shell=/bin/bash

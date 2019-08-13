@@ -17,10 +17,10 @@
 ;==========================================================
 
 [colors]
-background = #aaa1b4865
+background = #aa292929
 foreground = #dfdfdf
 
-background-alt = #aa20577A
+background-alt = #aa334521
 foreground-alt = #ffffff
 
 primary = #ffb52a
@@ -49,7 +49,8 @@ font-3 = siji:pixelsize=10;1
 font-4 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular;0
 
 modules-left = i3
-modules-center = spotify prev playpause next
+;modules-center = music prev playpause next
+modules-center = music 
 modules-right = xbacklight alsa pulseaudio memory cpu wlan eth temperature date 
 
 
@@ -72,11 +73,11 @@ font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-3 = siji:pixelsize=10;1
 font-4 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
 
-[module/spotify]
+[module/music]
 type = custom/script
 interval = 1
 format = <label>
-exec = /home/linuxer/.config/polybar/spotify.sh
+exec = mpc|sed 1q
 label-underline = ${colors.primary}
 label-background = ${colors.background-alt}
 label-padding = 5
@@ -84,13 +85,13 @@ click-left = i3 workspace 10
 
 [module/playpause]
 type = custom/script
-exec = spotifycli --playbackstatus
+exec = musiccli --playbackstatus
 interval = 1
 label = %output% 
 label-underline = ${colors.primary}
 label-background = ${colors.background-alt}
 label-padding = 1
-click-left = spotifycli --playpause
+click-left = musiccli --playpause
 
 [module/next]
 type = custom/text
@@ -98,7 +99,7 @@ content = ""
 content-underline = ${colors.primary}
 content-background = ${colors.background-alt}
 content-padding = 2
-click-left = spotifycli --next
+click-left = musiccli --next
 
 [module/prev]
 type = custom/text
@@ -106,7 +107,7 @@ content = ""
 content-underline = ${colors.primary}
 content-background = ${colors.background-alt}
 content-padding = 2
-click-left = spotifycli --prev
+click-left = musiccli --prev
 
 [module/xwindow]
 type = internal/xwindow
