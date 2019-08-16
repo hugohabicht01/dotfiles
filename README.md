@@ -2,7 +2,11 @@
 My i3-gaps dotfiles
 
 ## Screenshot
-![Screenshot](https://github.com/hugohabicht01/dotfiles/blob/master/2019-07-30-120501_1920x1080_scrot.png)
+Date: 30. July 2019
+![Screenshot](https://github.com/hugohabicht01/dotfiles/blob/master/Screenshot_30_July_2019.png)
+
+Date: 16. August 2019
+![Screenshot](https://github.com/hugohabicht01/dotfiles/blob/master/Screenshot_16_Aug_2019.png)
 
 ## Features
 * gruvbox like colorscheme
@@ -26,10 +30,10 @@ My i3-gaps dotfiles
 ### Optional dependencies
 * dmenu (if you want to use some features of my terminal)
 * spotify and [spotifycli](https://github.com/pwittchen/spotify-cli-linux)
-* audacious
+* mpd and ncmpcpp
 
 ## Required files:
-* [Luke Smiths wallpaper Repo](https://github.com/LukeSmithxyz/wallpapers)
+* Your favourite wallpaper, in my case it is at ~/Bilder/background.jpg
 * A powerline patched font
 
 ## Installation

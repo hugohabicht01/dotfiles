@@ -1,1 +1,1 @@
-killall polybar;polybar -q example & > /dev/null;jobs|disown
+killall polybar;polybar -q example &; jobs|disown
