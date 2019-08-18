@@ -70,13 +70,15 @@ bindsym $mod+Shift+q kill
 #Own Shortcuts
 
 bindsym $mod+d		exec rofi -show drun
-# bindsym $mod+z		gaps outer current plus 5
-# bindsym $mod+Shift+z	gaps outer current minus 5
-# bindsym $mod+y		gaps inner current plus 5
-# bindsym $mod+Shift+y	gaps inner current minus 5
+bindsym $mod+z		gaps outer current plus 5
+bindsym $mod+Shift+z	gaps outer current minus 5
+bindsym $mod+y		gaps inner current plus 5
+bindsym $mod+Shift+y	gaps inner current minus 5
 
 bindsym $mod+Shift+d	exec rofi -show run
 bindsym $mod+Shift+f 	exec st vifmrun
+bindsym $mod+Shift+b	exec chromium
+bindsym $mod+Shift+m	exec st openmail
 bindsym $mod+Print	exec scrot
 
 # Window Resizing

@@ -29,7 +29,7 @@ alert = #bd2c40
 
 [bar/example]
 width = 100%
-height = 30
+height = 35
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -42,16 +42,16 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = PowerlineSymbols:size=11;3
+font-0 = Roboto-Regular.ttf: Roboto:style=Regular:size=13
 font-1 = misc fixed:pixelsize=10;1
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-3 = siji:pixelsize=10;1
-font-4 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular;0
+font-4 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
+font-5 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
 
 modules-left = i3
-;modules-center = music prev playpause next
 modules-center = music 
-modules-right = xbacklight alsa pulseaudio memory cpu wlan eth temperature date 
+modules-right = alsa pulseaudio memory cpu wlan eth temperature date 
 
 
 tray-position = right
@@ -67,11 +67,13 @@ width = 100%
 
 modules-center = date
 
+
 font-0 = PowerlineSymbols:size=11;3
 font-1 = misc fixed:pixelsize=10;1
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-3 = siji:pixelsize=10;1
-font-4 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
+font-4 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
+
 
 [module/music]
 type = custom/script
@@ -81,7 +83,7 @@ exec = mpc|sed 1q
 label-underline = ${colors.primary}
 label-background = ${colors.background-alt}
 label-padding = 5
-click-left = i3 workspace 10
+click-left = i3 workspace 10 - 
 
 [module/playpause]
 type = custom/script
@@ -182,13 +184,13 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
@@ -231,41 +233,38 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-suffix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 label = %percentage:2%%
+click-left = st htop
 
 [module/memory]
 type = internal/memory
 interval = 2
-;format-prefix = " "
-format-prefix = ""
+format-suffix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
-label = %percentage_used%%
+;label = %percentage_used%%
+label = %mb_used%
+click-left = st htop
 
 [module/wlan]
 type = internal/network
 interface = wlp2s0
 interval = 3.0
-
-format-connected = <ramp-signal> <label-connected>
+format-connected =  <label-connected> <ramp-signal>
 format-connected-underline = ${colors.primary}
 label-connected = %essid%
 
-format-disconnected =
+format-disconnected = 
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+ 
+ramp-signal-0 = 
+; ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
@@ -293,7 +292,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-suffix = "  " 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 
@@ -392,7 +391,7 @@ type = internal/temperature
 thermal-zone = 0
 warn-temperature = 60
 
-format = <ramp> <label>
+format = <label>  <ramp>
 format-underline = ${colors.primary}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
@@ -401,9 +400,7 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
