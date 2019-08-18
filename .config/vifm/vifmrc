@@ -485,7 +485,9 @@ nnoremap <f6> :move<cr>
 nnoremap <f7> :mkdir<space>
 nnoremap <f8> :delete<cr>
 
-" ------------------------------------------------------------------------------
+"Remap q to exit
+nnoremap q :q<cr>
+------------------------------------------------------------------------------
 
 " Various customization examples
 
