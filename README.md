@@ -37,8 +37,9 @@ Date: 16. August 2019
 * A powerline patched font
 
 ## Installation
-1. Just copy my config files into the .config  directory and reload i3
-2. Run `:PlugInstall` in nvim
+1. Select the branch, "master" is optimized for laptops and "Desktop" is optimized for Desktopscreens
+2. Just copy my config files into the .config  directory and reload i3
+3. Run `:PlugInstall` in nvim
 
 ## Contact
 * Email: hugohabicht01@gmx.net
