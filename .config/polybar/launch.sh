@@ -1,1 +1,1 @@
-killall polybar;polybar -q example &; jobs|disown
+killall polybar;polybar -q example &;jobs|disown

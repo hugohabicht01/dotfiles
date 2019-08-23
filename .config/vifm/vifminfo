@@ -13,10 +13,6 @@
 	/home/linuxer/
 	..
 1564476427
-'z
-	/home/linuxer/.config/vifm
-	..
-1564476427
 
 # Bookmarks:
 
@@ -30,309 +26,315 @@ l2
 r2
 
 # Left window history (oldest to newest):
-d/home/linuxer/.config/vifm
+d/home/linuxer
+	dotfiles
+42
+d/home/linuxer/dotfiles
+	.config
+1
+d/home/linuxer/dotfiles/.config
+	ranger
+8
+d/home/linuxer/dotfiles
+	.config
+1
+d/home/linuxer/dotfiles/.config
+	i3
+3
+d/home/linuxer/dotfiles/.config/i3
+	config
+1
+d/home/linuxer/dotfiles/.config
+	polybar
+7
+d/home/linuxer/dotfiles/.config/polybar
+	config
+1
+d/home/linuxer/dotfiles/.config
+	rofi
+9
+d/home/linuxer/dotfiles/.config/rofi
+	config
+1
+d/home/linuxer/dotfiles/.config
+	vifm
+10
+d/home/linuxer/dotfiles/.config/vifm
+	..
+0
+d/home/linuxer/dotfiles/.config
+	ranger
+8
+d/home/linuxer/dotfiles
+	.config
+1
+d/home/linuxer
+	dotfiles
+42
+d/home/linuxer/dotfiles
+	.config
+1
+d/home/linuxer/dotfiles/.config
+	vifm
+10
+d/home/linuxer/dotfiles/.config/vifm
 	vifmrc
 5
+d/home/linuxer/dotfiles/.config
+	vifm
+10
+d/home/linuxer/dotfiles
+	README.md
+5
+d/home/linuxer
+	PycharmProjects
+10
+d/home/linuxer/PycharmProjects
+	TestEnv
+2
+d/home/linuxer/PycharmProjects/TestEnv
+	docker-cheatsheet.txt
+1
+d/home/linuxer/PycharmProjects
+	TestEnv
+2
 d/home/linuxer
 	.config
-9
+4
 d/home/linuxer/.config
 	vifm
-45
-d/home/linuxer/.config/vifm
-	vifmrc
-5
-d/home/linuxer/.config
-	vifm
-47
-d/home/linuxer
-	Downloads
-5
-d/home/linuxer/Downloads
-	wallpapers
 17
-d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/Downloads/wallpapers/Landscapes
-	1490033412984.jpg
-34
 d/home/linuxer/.config/vifm
 	vifmrc
 5
 d/home/linuxer/.config
 	vifm
-47
-d/home/linuxer
-	Downloads
-5
-d/home/linuxer/Downloads
-	wallpapers
 17
-d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/Downloads/wallpapers/Landscapes
-	1490216336527.jpg
-45
-d/home/linuxer/.config/vifm
-	vifmrc
-5
-d/home/linuxer/.config
-	vifm
-45
 d/home/linuxer
+	.password-store
+4
+d/home/linuxer/.password-store
 	..
 0
+d/home/linuxer
+	.password-store
+4
 d/home
 	linuxer
 2
 d/home/linuxer
-	Downloads
-5
-d/home/linuxer/Downloads
-	wallpapers
-17
-d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/Downloads/wallpapers/Landscapes
-	1490216262024.png
-44
-d/home/linuxer/.config/vifm
-	vifmrc
-5
-d/home/linuxer/.config
-	vifm
-45
-d/home/linuxer
-	Downloads
-5
-d/home/linuxer/Downloads
-	wallpapers
-17
-d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/Downloads/wallpapers/Landscapes
-	1444114928283.jpg
-24
-d/home/linuxer/.config/vifm
-	vifmrc
-5
-d/home/linuxer/.config
-	vifm
-47
-d/home/linuxer
-	Downloads
-5
-d/home/linuxer/Downloads
-	wallpapers
-17
-d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/Downloads/wallpapers/Landscapes
-	watercolors.png
-46
-d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/Downloads/wallpapers/Landscapes
-	(wide) 64.jpg
-1
-d/home/linuxer/.config/vifm
-	vifmrc
-5
-d/home/linuxer/.config
-	vifm
-45
-d/home/linuxer/.config/vifm
-	vifm-help.txt
+	PycharmProjects
+10
+d/home/linuxer/PycharmProjects
+	TestEnv
+2
+d/home/linuxer/PycharmProjects/TestEnv
+	docker-compose.debug.yml
+2
+d/home/linuxer/PycharmProjects
+	cryptic-docker
 3
-d/home/linuxer/.config
-	vifm
-45
+d/home/linuxer/PycharmProjects/cryptic-docker
+	docker-compose.yml
+1
+d/home/linuxer/PycharmProjects
+	cryptic-docker
+3
 d/home/linuxer
+	Music
+8
+d/home/linuxer/Music
+	BruceSpringsteenCD
+2
+d/home/linuxer/Music/BruceSpringsteenCD
+	Live 1975-85
+1
+d/home/linuxer/Music/BruceSpringsteenCD/Live 1975-85
 	..
 0
-d/home
-	linuxer
+d/home/linuxer/Music/BruceSpringsteenCD
+	Live 1975-85
+1
+d/home/linuxer/Music
+	BruceSpringsteenCD
 2
+d/home/linuxer
+	abcde.bf110d0d
+11
+d/home/linuxer/abcde.bf110d0d
+	data-cddb
+1
+d/home/linuxer/abcde.bf110d0d/data-cddb
+	cddbstat
+1
+d/home/linuxer/abcde.bf110d0d
+	data-cddb
+1
+d/home/linuxer
+	Screenshots
+11
+d/home/linuxer/Screenshots
+	2019-08-10-181130_1920x1080_scrot.png
+1
+d/home/linuxer
+	Downloads
+6
+d/home/linuxer/Downloads
+	wallpapers
+17
+d/home/linuxer/Downloads/wallpapers
+	Landscapes
+5
+d/home/linuxer/Downloads
+	wallpapers
+17
+d/home/linuxer/Downloads/wallpapers
+	Landscapes
+5
+d/home/linuxer/Downloads/wallpapers/Landscapes
+	1359330091856.jpg
+17
+d/home/linuxer/Downloads/wallpapers
+	Landscapes
+5
+d/home/linuxer/Downloads/wallpapers/Landscapes
+	1426033016725.jpg
+20
+d/home/linuxer/Downloads/wallpapers
+	Tech
+7
+d/home/linuxer/Downloads/wallpapers/Tech
+	..
+0
+d/home/linuxer/Downloads/wallpapers
+	Tech
+7
+d/home/linuxer/Downloads/wallpapers/Tech
+	vim.png
+45
+d/home/linuxer/Downloads/wallpapers
+	Landscapes
+5
+d/home/linuxer/Downloads/wallpapers/Landscapes
+	NebelMitWald.jpg
+45
 d/home/linuxer
 	Bilder
-1
+2
 d/home/linuxer/Bilder
-	Lagerfeuer.jpg
-3
-d/home/linuxer
-	.config
-4
-d/home/linuxer/.config
-	vifm
-45
-d/home/linuxer/.config/vifm
-	vifmrc
-5
-d/home/linuxer/.config
-	vifm
-45
-d/home/linuxer
-	..
-0
-d/home
-	linuxer
-2
-d/home/linuxer
-	Downloads
-5
-d/home/linuxer/Downloads
-	wallpapers
-17
-d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/Downloads/wallpapers/Landscapes
-	1490215968537.jpg
-39
-d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/Downloads
-	wallpapers
-17
-d/home/linuxer
-	.config
-9
-d/home/linuxer/.config
-	vifm
-47
-d/home/linuxer/.config/vifm
-	vifmrc
-5
-d/home/linuxer/.config
-	vifm
-45
-d/home/linuxer
-	Downloads
-5
-d/home/linuxer/Downloads
-	wallpapers
-17
-d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/Downloads/wallpapers/Landscapes
-	1490215890981.jpg
-37
-d/home/linuxer
-	Downloads
-5
-d/home/linuxer/Downloads
-	wallpapers
-17
-d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/Downloads/wallpapers/Landscapes
-	1477085504894.jpg
-27
-d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/.config/vifm
-	vifminfo
-4
-d/home/linuxer/.config
-	vifm
-47
-d/home/linuxer
-	..
-0
-d/home
-	linuxer
-2
-d/home/linuxer
-	Downloads
-5
-d/home/linuxer/Downloads
-	wallpapers
-17
-d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/Downloads/wallpapers/Landscapes
-	1480804694835.jpg
-4
-d/home/linuxer/Downloads/wallpapers
-	Unsorted
-9
-d/home/linuxer/Downloads
-	st
-14
-d/home/linuxer/Downloads/st
-	config.mk
+	void.png
 10
-d/home/linuxer/Downloads
-	The Great War [Explicit]
-9
-d/home/linuxer/Downloads/The Great War [Explicit]
-	01 - The Future Of Warfare.mp3
-1
-d/home/linuxer/Downloads
-	Blatt8.pdf
-20
 d/home/linuxer
-	Downloads
-5
-d/home
-	linuxer
-2
-d/
-	dev
-2
-d/dev
-	cdrom
-21
-d/
-	home
+	PycharmProjects
+10
+d/home/linuxer/PycharmProjects
+	cryptic-inventory
 4
-d/home
-	linuxer
-2
+d/home/linuxer/PycharmProjects/cryptic-inventory
+	..
+0
+d/home/linuxer/PycharmProjects
+	cryptic-inventory
+4
+d/home/linuxer/PycharmProjects/cryptic-inventory
+	app
+1
+d/home/linuxer/PycharmProjects/cryptic-inventory/app
+	schemes.py
+11
+d/home/linuxer/PycharmProjects/cryptic-inventory
+	app
+1
+d/home/linuxer/PycharmProjects
+	cryptic-inventory
+4
 d/home/linuxer
 	Downloads
-5
+6
 d/home/linuxer/Downloads
 	wallpapers
-17
+15
+d/home/linuxer/Downloads/wallpapers
+	Spacescapes
+6
+d/home/linuxer/Downloads/wallpapers/Spacescapes
+	Sci-Fi 148.jpg
+4
+d/home/linuxer/Downloads/wallpapers
+	Vibrant
+10
+d/home/linuxer/Downloads/wallpapers/Vibrant
+	blue.jpg
+26
+d/home/linuxer/Downloads/wallpapers/Landscapes
+	zhangye_danxia.jpg
+49
 d/home/linuxer/Downloads/wallpapers
 	Unsorted
 9
 d/home/linuxer/Downloads/wallpapers/Unsorted
-	1472494578032.jpg
-2
+	wallhaven-479766.jpg
+49
 d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
-d/home/linuxer/Downloads/wallpapers/Landscapes
-	21169151_1015543403246094(...).jpg
-11
+	Vibrant
+10
+d/home/linuxer/Downloads/wallpapers/Vibrant
+	third_eye.jpg
+45
 d/home/linuxer/Downloads/wallpapers
-	Landscapes
-5
+	Vibrant
+10
 d/home/linuxer/Downloads
-	wallpapers
-17
+	dotfiles
+10
+d/home/linuxer/Downloads/dotfiles
+	.config
+1
+d/home/linuxer/Downloads/dotfiles/.config
+	ncmpcpp
+5
+d/home/linuxer/Downloads/dotfiles/.config/ncmpcpp
+	bindings
+1
+d/home/linuxer/Downloads/dotfiles/.config
+	ncmpcpp
+5
+d/home/linuxer/Downloads/dotfiles
+	.config
+1
+d/home/linuxer/Downloads
+	dotfiles
+10
+d/home/linuxer
+	Downloads
+6
+d/home/linuxer/Downloads
+	vimium-options.json
+38
 d/home/linuxer
 	Bilder
+2
+d/home/linuxer/Bilder
+	wallpapers
+1
+d/home/linuxer/Bilder/wallpapers
+	1485051712534.jpg
 1
 d/home/linuxer/Bilder
-	background.jpg
-5
+	wallpapers
+1
+d/home/linuxer/Bilder/wallpapers
+	1490477299431.jpg
+3
 d
 
 # Right window history (oldest to newest):
+D/home/linuxer/Bilder
+	landscape_4.jpg
+41
+D/home/linuxer/.config
+	vifm
+45
 D/home/linuxer
 	..
 0
@@ -349,36 +351,147 @@ D/home/linuxer
 	..
 0
 D/home/linuxer/.config/vifm
-	
+	..
 0
+D/home/linuxer/.config
+	i3
+25
+D/home/linuxer/.config/i3
+	config
+1
+D/home/linuxer/.config
+	polybar
+17
+D/home/linuxer/.config/polybar
+	config
+1
+D/home/linuxer/.config
+	rofi
+17
+D/home/linuxer/.config/rofi
+	config
+1
+D/home/linuxer/.config
+	rofi
+39
+D/home/linuxer
+	.config
+10
+D/home/linuxer/.config
+	vifm
+43
+D/home/linuxer/.config/vifm
+	..
+0
+D/home/linuxer/.config
+	vifm
+43
+D/home/linuxer
+	cryptic.py
+16
+D/home/linuxer/Bilder
+	wallpapers
+1
+D/home/linuxer/Bilder/wallpapers
+	stock-photo-81258821.jpg
+34
 D
 
 # Command line history (oldest to newest):
+:bulkrename
+:mkdir dunst
+:nvim
+:vim
+:edit
+:edit config
 :runexec
 :help
 :set vicmd=/usr/bin/nvim
+:nvim %s
+:com nvim
+:mkdir rofi
+:mkdir cryptic-docker
+:shell
+:mkdir Screenshots
+:windo transset-df 0.8 -a
+:!echo "test"
+:!transset-df 0.8 -a
+:mkdir wallpapers
 :q
 
 # Search history (oldest to newest):
+/.zshr
+/nvi
+/rof
+/nv
+/mpd
 /vi
-/vif
 /.local
 /.config
 /conf
+/i3
+/pol
+/vif
+/.con
+/pyc
+/landscape_4
 
 # Prompt history (oldest to newest):
+pdocker-compose.yml.bak
+pdunstrc
 pvimtutor
 p21169151_1015543403246094(...).jpg
 pbackground
+pdocker-compose.yml
+pdocker-compose
+pLinuxCommands
+pmakepkg|not war
+pcrunchbang
+pvimCheatsheet
+pNebelMitWald
+pMountains
 
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/linuxer/Downloads/wallpapers/Landscapes/21169151_1015543403246094(...).jpg
 
 # Directory stack (oldest to newest):
 
 # Trash content:
+t/home/linuxer/.local/share/vifm/Trash/000_spotify.sh
+	/home/linuxer/Downloads/dotfiles/.config/polybar/spotify.sh
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-10-181130_1920x1080_scrot.png
+	/home/linuxer/2019-08-10-181130_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-11-213257_1920x1080_scrot.png
+	/home/linuxer/2019-08-11-213257_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-13-160715_1920x1080_scrot.png
+	/home/linuxer/2019-08-13-160715_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-19-114423_1920x1080_scrot.png
+	/home/linuxer/2019-08-19-114423_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-19-220322_1920x1080_scrot.png
+	/home/linuxer/2019-08-19-220322_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-19-220333_1920x1080_scrot.png
+	/home/linuxer/2019-08-19-220333_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-19-220337_1920x1080_scrot.png
+	/home/linuxer/2019-08-19-220337_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-19-220343_1920x1080_scrot.png
+	/home/linuxer/2019-08-19-220343_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-19-220356_1920x1080_scrot.png
+	/home/linuxer/2019-08-19-220356_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-19-224450_1920x1080_scrot.png
+	/home/linuxer/2019-08-19-224450_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-19-224552_1920x1080_scrot.png
+	/home/linuxer/2019-08-19-224552_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-20-175207_1920x1080_scrot.png
+	/home/linuxer/2019-08-20-175207_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-20-175243_1920x1080_scrot.png
+	/home/linuxer/2019-08-20-175243_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_2019-08-20-183507_1920x1080_scrot.png
+	/home/linuxer/2019-08-20-183507_1920x1080_scrot.png
+t/home/linuxer/.local/share/vifm/Trash/000_test.log
+	/home/linuxer/test.log
+t/home/linuxer/.local/share/vifm/Trash/000_Mountains.jpg
+	/home/linuxer/Bilder/Mountains.jpg
 
 # State:
 f

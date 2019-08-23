@@ -487,6 +487,8 @@ nnoremap <f8> :delete<cr>
 
 "Remap q to exit
 nnoremap q :q<cr>
+"copy files to ~/Bilder
+nnoremap cb :!cp %f ~/Bilder<cr>
 ------------------------------------------------------------------------------
 
 " Various customization examples

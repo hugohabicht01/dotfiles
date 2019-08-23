@@ -61,8 +61,9 @@ bindsym $mod+Shift+d	exec rofi -show run
 bindsym $mod+Shift+f 	exec st vifmrun
 bindsym $mod+Shift+b	exec chromium
 bindsym $mod+Shift+m	exec st neomutt
+bindsym $mod+Shift+s	exec notify-send "Syncing mail" && mbsync -a && notify-send -i ~/Bilder/ok.png "Synced mail" || notify-send -i ~/Bilder/error.png   "Syncing not successful"
 bindsym $mod+m		exec st ncmpcpp
-bindsym $mod+Print	exec cd ~/;scrot
+bindsym $mod+Print	exec cd ~/ && scrot
 
 # Window Resizing
 bindsym $mod+u		resize shrink width 10 px
@@ -215,8 +216,8 @@ bindsym $mod+r mode "resize"
 #Startup snippets
 
 exec xcompmgr -o -C
-exec feh --bg-fill ~/Bilder/background.jpg
+exec feh --bg-fill ~/Bilder/NebelMitWald.jpg
 exec fish /home/linuxer/.config/polybar/launch.sh 
 exec xmodmap ~/.Xmodmap
 exec mpd > /dev/null
-exec echo ~/.config/polybar/config |entr fish ~/.config/polybar/launch.sh & 
+exec dunst &

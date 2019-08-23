@@ -12,6 +12,9 @@ Plug 'mboughaba/i3config.vim'
 Plug 'chaoren/vim-wordmotion'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vifm/vifm.vim'
+Plug 'ap/vim-css-color'
+Plug 'junegunn/goyo.vim'
+Plug 'dag/vim-fish'
 call plug#end()
 
 set shell=/bin/bash
@@ -22,6 +25,10 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 set number relativenumber
 set background=dark
-" colorscheme solarized8
-
+" let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:python3_host_prog = '/usr/bin/python3'  " Python 3
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
+setlocal foldmethod=expr
 
