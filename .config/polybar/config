@@ -17,7 +17,7 @@
 ;==========================================================
 
 [colors]
-background = #aa292929
+background = #aaa292929
 foreground = #dfdfdf
 
 background-alt = #aa334521
@@ -27,14 +27,22 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/example]
+[bar/mainbar]
 width = 100%
-height = 30
+height = 35
 background = ${colors.background}
 foreground = ${colors.foreground}
 
+radius = 5
+
 line-size = 3
 line-color = #f00
+
+offset-x = 0
+offset-y = 0
+
+border-top-size = 5
+border-left-size = 5
 
 padding-left = 0
 padding-right = 2
@@ -42,16 +50,16 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Roboto-Regular.ttf: Roboto:style=Regular:size=10
+font-0 = Fantasque Sans Mono:pixelsize=12;2
 font-1 = misc fixed:pixelsize=10;1
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-3 = siji:pixelsize=10;1
 font-4 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
 font-5 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
 
-modules-left = i3
-modules-center = music 
-modules-right = alsa pulseaudio memory cpu wlan eth temperature date 
+modules-left = i3 
+modules-center = music
+modules-right = LaptopBattery memory cpu wlan eth temperature date 
 
 
 tray-position = right
@@ -66,24 +74,41 @@ height = 30
 width = 100%
 
 modules-center = date
+background = ${colors.background}
+foreground = ${colors.foreground}
 
-
-font-0 = PowerlineSymbols:size=11;3
+font-0 = Fantasque Sans Mono:pixelsize=12;2
 font-1 = misc fixed:pixelsize=10;1
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-3 = siji:pixelsize=10;1
 font-4 = Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid
+font-5 = Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular
+
+
+[module/info-hackspeed]
+type = custom/script
+exec = ~/Downloads/polybar-scripts/polybar-scripts/info-hackspeed/info-hackspeed.sh
+tail = true
+
+[module/info-wifionice]
+type = custom/script
+exec = ~/Downloads/polybar-scripts/polybar-scripts/info-wifionice/info-wifionice.sh
+format = <label>
+label-background = ${colors.background-alt}
+label-padding = 5
+label-underline = ${colors.primary}
+interval = 10
 
 
 [module/music]
 type = custom/script
 interval = 1
 format = <label>
-exec = mpc|sed '1q'|sed 's/volume:100%.*/-/g' 
+exec = mpc|sed '1q'|sed 's/volume:100%.*/-/g'
 label-underline = ${colors.primary}
 label-background = ${colors.background-alt}
 label-padding = 5
-click-left = i3 workspace 10 - 
+click-left = i3 workspace 
 
 [module/playpause]
 type = custom/script
@@ -93,7 +118,6 @@ label = %output%
 label-underline = ${colors.primary}
 label-background = ${colors.background-alt}
 label-padding = 1
-click-left = musiccli --playpause
 
 [module/next]
 type = custom/text
@@ -168,14 +192,7 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-
-
-
-
 label-active-font = 4
-
-
-
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
@@ -270,7 +287,7 @@ label-connected = %essid%
 
 format-disconnected = 
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
+format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
  
@@ -281,15 +298,14 @@ ramp-signal-0 = 
 type = internal/network
 interface = enp3s0
 interval = 3.0
-
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.primary}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
+format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -380,9 +396,9 @@ format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
 animation-charging-0 = 
@@ -396,6 +412,14 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
+
+[module/LaptopBattery]
+type = custom/script
+interval = 5
+format = <label>
+exec = acpi|LaptopBattery
+label-underline = ${colors.primary}
+click-left = st acpi 
 
 [module/temperature]
 type = internal/temperature
@@ -417,31 +441,38 @@ ramp-foreground = ${colors.foreground-alt}
 [module/powermenu]
 type = custom/menu
 
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
 expand-right = true
 
-format-spacing = 1
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+;
+; Available exec commands:
+;   menu-open-LEVEL
+;   menu-close
+; Other commands will be executed using "/usr/bin/env sh -c $COMMAND"
+label-open = Apps
+label-close = x
 
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
+; Optional item separator
+; Default: none
 label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = reboot
+menu-0-0 = Browsers
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-1 = Multimedia
 menu-0-1-exec = menu-open-2
 
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+menu-1-0 = Firefox
+menu-1-0-exec = firefox &
+menu-1-1 = Chromium
+menu-1-1-exec = chromium &
 
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+menu-2-0 = Gimp
+menu-2-0-exec = gimp &
+menu-2-1 = Scrot
+menu-2-1-exec = scrot &
 
 [settings]
 screenchange-reload = true

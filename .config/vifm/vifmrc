@@ -66,7 +66,7 @@ set novimhelp
 " If you would like to run an executable file when you
 " press return on the file name set this.
 
-set runexec
+set norunexec
 
 " Selected color scheme
 
@@ -448,7 +448,7 @@ nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
 " Open file in existing instance of gvim
-nnoremap o :!gvim --remote-tab-silent %f<cr>
+nnoremap o :!st nvim %f & disown <cr>
 " Open file in new instance of gvim
 nnoremap O :!gvim %f<cr>
 
@@ -487,8 +487,7 @@ nnoremap <f8> :delete<cr>
 
 "Remap q to exit
 nnoremap q :q<cr>
-"copy files to ~/Bilder
-nnoremap cb :!cp %f ~/Bilder<cr>
+nnoremap b :! feh --bg-fill %f<cr>
 ------------------------------------------------------------------------------
 
 " Various customization examples
