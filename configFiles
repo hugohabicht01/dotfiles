@@ -5,14 +5,11 @@
 .config/ncmpcpp/bindings
 .config/ncmpcpp/config
 .config/nvim/init.vim
-.config/polybar/config
-.config/polybar/launch.sh
 .config/rofi/config
 .config/vifm/colors/luke.vifm
 .config/vifm/scripts/vifmimg
 .config/vifm/scripts/vifmrun
 .config/vifm/vifmrc
-.config/dunst/dunst.rc
 .Xmodmap
 .xinitrc
 .ideavimrc

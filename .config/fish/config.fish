@@ -6,7 +6,7 @@ set theme_color_scheme gruvbox
 set dotfiles ~/dotfiles/.config
 set config ~/.config
 fish_vi_key_bindings
-thefuck --alias fuck|source
+# thefuck --alias fuck|source
 set -U date (date|awk '{print $2,$3}')
 
 

@@ -1,0 +1,28 @@
+#!/usr/bin/python
+import sys
+import re
+
+
+def main():
+    batteryInformation = sys.stdin.readline()
+    percentCharged = 0
+    charging = False
+    if "Charging" in batteryInformation:
+    	charging = True	
+    try:
+        percentCharged = int(re.findall("[Dis]*[cC]harging, (\d{2})", batteryInformation)[0])
+    except IndexError:
+        print("Unknown")
+        return
+    if percentCharged < 25:
+        print(f"{percentCharged}% {'' if not charging else ''}")
+    elif percentCharged < 50:
+        print(f"{percentCharged}% {'' if not charging else ''}")
+    elif percentCharged < 90:
+        print(f"{percentCharged}% {'' if not charging else ''}")
+    else:
+        print(f"{percentCharged}% {'' if not charging else ''} ")
+        # print(f"{percentCharged}% {'' if charging else '' if percentCharged < 50 else ''}")
+
+if __name__ == '__main__':
+    main()

@@ -8,8 +8,8 @@
 for_window [class="^.*"] border pixel 2
 for_window [title="pulseaudio-mixer-cli"] floating enable
 assign [class="Chromium"] $ws2
-gaps inner 30
-gaps outer 10
+gaps inner 0
+gaps outer 50
 
 #Border color
 
@@ -54,14 +54,14 @@ bindsym $mod+y		gaps inner current plus 5
 bindsym $mod+Shift+y	gaps inner current minus 5
 
 bindsym $mod+Shift+d	exec rofi -show run
-bindsym $mod+Shift+f 	exec st vifmrun
+bindsym $mod+Shift+f 	exec st vifm
 bindsym $mod+Shift+b	exec chromium
 bindsym $mod+Shift+m	exec st neomutt
 bindsym $mod+Shift+s   	exec notify-send "Syncing mail" && mbsync -a && notify-send -i ~/Bilder/ok.png "Synced mail" || notify-send -i ~/Bilder/error.png   "Syncing not successful"
 bindsym $mod+Shift+a	exec st -t "pulseaudio-mixer-cli" pa-mixer-mk3.py
 bindsym $mod+m		exec st ncmpcpp
 bindsym $mod+Print	exec cd ~/;scrot
-bindsym $mod+Shift+Escape	exec i3lock -i ~/Bilder/black_Arch.png
+bindsym $mod+Shift+Escape	exec i3lock-fancy
 
 # Window Resizing
 bindsym $mod+u		resize shrink width 10 px
@@ -219,10 +219,10 @@ bindsym $mod+r mode "resize"
 
 #Startup snippets
 
-exec compton --config ~/.config/compton/config.conf
-# exec xcompmgr -o -C & disown
-exec feh --bg-fill ~/Bilder/landscape.jpg
-exec polybarlaunch
+# exec compton --config ~/.config/compton/config.conf
+exec xcompmgr -o -C & disown
+exec feh --bg-fill ~/wallpapers/Landscapes/1490677982853.jpg
+exec ~/.config/polybar/launch.sh
 exec xmodmap ~/.Xmodmap
 exec mpd > /dev/null
 exec echo ~/.config/polybar/config |entr fish ~/.config/polybar/launch.sh & 

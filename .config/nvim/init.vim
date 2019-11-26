@@ -31,6 +31,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 set clipboard+=unnamedplus
 
-" colorscheme solarized8
+colorscheme solarized8
 
 
