@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/linuxer/WebstormProjects/tina/public'
+let g:netrw_dirhist_3='/home/linuxer/WebstormProjects/tina'
+let g:netrw_dirhist_2='/home/linuxer/WebstormProjects/tina/src'
+let g:netrw_dirhist_1='/home/linuxer'

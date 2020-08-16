@@ -1,0 +1,107 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+.communicate	scripts/networkmenu.py	/^                     stdin=PIPE, stdout=PIPE).communicate()[0].decode(ENC)$/;"	f
+.communicate	scripts/networkmenu.py	/^            Popen(["nm-connection-editor"]).communicate()$/;"	f
+.communicate	scripts/networkmenu.py	/^            Popen([terminal, "-e", "nmtui"]).communicate()$/;"	f
+.communicate	scripts/networkmenu.py	/^        Popen(["ModemManager"], stdout=devnull, stderr=devnull).communicate()$/;"	f
+.communicate	scripts/networkmenu.py	/^        Popen([terminal, "-e", "nmtui"]).communicate()$/;"	f
+.get_mac_address	scripts/networkmenu.py	/^                     i.get_setting_wireless().get_mac_address() ==$/;"	f
+.get_mac_address	scripts/networkmenu.py	/^                 i.get_setting_wireless().get_mac_address() ==$/;"	f
+.strip	scripts/networkmenu.py	/^                  if ((str(i).strip() == str(sel.strip())$/;"	f
+.strip	scripts/networkmenu.py	/^                  if str(i).strip() == sel.strip()]$/;"	f
+.strip	scripts/networkmenu.py	/^    nm_pw = str(nm_pw).strip()$/;"	f
+CLIENT.get_active_connections	scripts/networkmenu.py	/^    active = CLIENT.get_active_connections()$/;"	f
+CLIENT.get_connections	scripts/networkmenu.py	/^CONNS = CLIENT.get_connections()$/;"	f
+CLIENT.get_devices	scripts/networkmenu.py	/^    for dev in CLIENT.get_devices():$/;"	f
+GLib.MainLoop	scripts/networkmenu.py	/^LOOP = GLib.MainLoop()$/;"	f
+LOOP.quit	scripts/networkmenu.py	/^        LOOP.quit()$/;"	f
+LOOP.run	scripts/networkmenu.py	/^    LOOP.run()$/;"	f
+NM.SettingConnection.new	scripts/networkmenu.py	/^    s_con = NM.SettingConnection.new()$/;"	f
+NM.SettingIP4Config.new	scripts/networkmenu.py	/^    s_ip4 = NM.SettingIP4Config.new()$/;"	f
+NM.SettingIP6Config.new	scripts/networkmenu.py	/^    s_ip6 = NM.SettingIP6Config.new()$/;"	f
+NM.SettingWireless.new	scripts/networkmenu.py	/^    s_wifi = NM.SettingWireless.new()$/;"	f
+NM.SettingWirelessSecurity.new	scripts/networkmenu.py	/^        s_wifi_sec = NM.SettingWirelessSecurity.new()$/;"	f
+NM.SimpleConnection.new	scripts/networkmenu.py	/^    profile = NM.SimpleConnection.new()$/;"	f
+[a.get_id	scripts/networkmenu.py	/^    active_con_ids = [a.get_id() for a in active_cons]$/;"	f
+[d.get_iface	scripts/networkmenu.py	/^    device_names = "\\n".join([d.get_iface() for d in devices]).encode(ENC)$/;"	f
+a.get_id	scripts/networkmenu.py	/^                                 if a.get_id() == con.get_id()]$/;"	f
+a.get_strength	scripts/networkmenu.py	/^                     key=lambda a: a.get_strength(), reverse=True)$/;"	f
+act_conn.get_connection	scripts/networkmenu.py	/^        conn = act_conn.get_connection()$/;"	f
+action[0]	scripts/networkmenu.py	/^    action[0]()$/;"	f
+active_ap.get_bssid	scripts/networkmenu.py	/^    active_ap_bssid = active_ap.get_bssid() if active_ap is not None else ""$/;"	f
+active_conn.get_connection	scripts/networkmenu.py	/^                         if active_conn.get_connection() in ap_conns]$/;"	f
+adapter.get_access_points	scripts/networkmenu.py	/^    aps_all = sorted(adapter.get_access_points(),$/;"	f
+adapter.get_active_access_point	scripts/networkmenu.py	/^    active_ap = adapter.get_active_access_point()$/;"	f
+adapter.get_permanent_hw_address	scripts/networkmenu.py	/^                     adapter.get_permanent_hw_address()]$/;"	f
+adapter.get_permanent_hw_address	scripts/networkmenu.py	/^                 adapter.get_permanent_hw_address()]$/;"	f
+adapter.get_permanent_hw_address	scripts/networkmenu.py	/^    s_wifi.set_property(NM.SETTING_WIRELESS_MAC_ADDRESS, adapter.get_permanent_hw_address())$/;"	f
+args_dict.items	scripts/networkmenu.py	/^    extras = (["-" + str(k), str(v)] for (k, v) in args_dict.items())$/;"	f
+client.get_devices	scripts/networkmenu.py	/^    devices = client.get_devices()$/;"	f
+client.networking_get_enabled	scripts/networkmenu.py	/^    networking_enabled = client.networking_get_enabled()$/;"	f
+client.wireless_get_enabled	scripts/networkmenu.py	/^    wifi_enabled = client.wireless_get_enabled()$/;"	f
+client.wwan_get_enabled	scripts/networkmenu.py	/^    wwan_enabled = client.wwan_get_enabled()$/;"	f
+con.get_id	scripts/networkmenu.py	/^                                 " the connection: {}".format(con.get_id()))$/;"	f
+con.get_id	scripts/networkmenu.py	/^                                 if a.get_id() == con.get_id()]$/;"	f
+con.get_id	scripts/networkmenu.py	/^        action_name = u"{}:{}".format(con.get_id(), label)$/;"	f
+con.get_id	scripts/networkmenu.py	/^        is_active = con.get_id() in active_con_ids$/;"	f
+conf.sections	scripts/networkmenu.py	/^    if not conf.sections():$/;"	f
+configparser.ConfigParser	scripts/networkmenu.py	/^    conf = configparser.ConfigParser()$/;"	f
+conn.delete	scripts/networkmenu.py	/^            conn.delete()$/;"	f
+conn.verify	scripts/networkmenu.py	/^        conn.verify()$/;"	f
+conn.verify_secrets	scripts/networkmenu.py	/^        conn.verify_secrets()$/;"	f
+connect	scripts/nmvpnmenu.sh	/^connect() {$/;"	f
+data.verify	scripts/networkmenu.py	/^        data.verify()$/;"	f
+data.verify_secrets	scripts/networkmenu.py	/^        data.verify_secrets()$/;"	f
+delete_connection	scripts/networkmenu.py	/^def delete_connection():$/;"	f
+dev.request_scan	scripts/networkmenu.py	/^                dev.request_scan()$/;"	f
+disconnect	scripts/nmvpnmenu.sh	/^disconnect() {$/;"	f
+get_passphrase	scripts/networkmenu.py	/^                password = get_passphrase()$/;"	f
+get_passphrase	scripts/networkmenu.py	/^def get_passphrase():$/;"	f
+i.get_connection	scripts/networkmenu.py	/^                    i.get_connection() is not None and$/;"	f
+i.get_connection	scripts/networkmenu.py	/^                    i.get_connection().is_type(NM.SETTING_BLUETOOTH_SETTING_NAME)]$/;"	f
+i.get_connection	scripts/networkmenu.py	/^                   i.get_connection() is not None and$/;"	f
+i.get_connection	scripts/networkmenu.py	/^                   i.get_connection().is_type(NM.SETTING_GSM_SETTING_NAME)]$/;"	f
+i.get_connection_type	scripts/networkmenu.py	/^    active_eths = [i for i in active if 'ethernet' in i.get_connection_type()]$/;"	f
+i.get_device_type	scripts/networkmenu.py	/^    devices = [i for i in devices if i.get_device_type() == NM.DeviceType.WIFI]$/;"	f
+i.get_id	scripts/networkmenu.py	/^    conn_acts = [Action(i.get_id(), i.delete) for i in CONNS]$/;"	f
+i.get_iface	scripts/networkmenu.py	/^    devices = [i for i in devices if i.get_iface() == sel.strip()]$/;"	f
+i.get_setting_wireless	scripts/networkmenu.py	/^                     i.get_setting_wireless() is not None and$/;"	f
+i.get_setting_wireless	scripts/networkmenu.py	/^                     i.get_setting_wireless().get_mac_address() ==$/;"	f
+i.get_setting_wireless	scripts/networkmenu.py	/^                 i.get_setting_wireless() is not None and$/;"	f
+i.get_setting_wireless	scripts/networkmenu.py	/^                 i.get_setting_wireless().get_mac_address() ==$/;"	f
+i.get_vpn	scripts/networkmenu.py	/^    active_vpns = [i for i in active if i.get_vpn()]$/;"	f
+is_modemmanager_installed	scripts/networkmenu.py	/^    wwan_installed = is_modemmanager_installed()$/;"	f
+is_modemmanager_installed	scripts/networkmenu.py	/^def is_modemmanager_installed():$/;"	f
+launch_connection_editor	scripts/networkmenu.py	/^def launch_connection_editor():$/;"	f
+lines.split	scripts/networkmenu.py	/^    res[1:1] = lines.split()$/;"	f
+locale.getpreferredencoding	scripts/networkmenu.py	/^ENC = locale.getpreferredencoding()$/;"	f
+nm_ap.get_bssid	scripts/networkmenu.py	/^        is_active = nm_ap.get_bssid() == active_ap_bssid$/;"	f
+nm_ap.get_flags	scripts/networkmenu.py	/^    flags = nm_ap.get_flags()$/;"	f
+nm_ap.get_path	scripts/networkmenu.py	/^    CLIENT.add_and_activate_connection_async(profile, adapter, nm_ap.get_path(),$/;"	f
+nm_ap.get_rsn_flags	scripts/networkmenu.py	/^    rsn_flags = nm_ap.get_rsn_flags()$/;"	f
+nm_ap.get_ssid	scripts/networkmenu.py	/^    s_wifi.set_property(NM.SETTING_WIRELESS_SSID, nm_ap.get_ssid())$/;"	f
+nm_ap.get_ssid	scripts/networkmenu.py	/^    ssid = nm_ap.get_ssid()$/;"	f
+nm_ap.get_strength	scripts/networkmenu.py	/^        bars = NM.utils_wifi_strength_bars(nm_ap.get_strength())$/;"	f
+nm_ap.get_wpa_flags	scripts/networkmenu.py	/^    wpa_flags = nm_ap.get_wpa_flags()$/;"	f
+os.environ.copy	scripts/networkmenu.py	/^ENV = os.environ.copy()$/;"	f
+rescan_wifi	scripts/networkmenu.py	/^def rescan_wifi():$/;"	f
+run	scripts/networkmenu.py	/^    run()$/;"	f
+run	scripts/networkmenu.py	/^def run():$/;"	f
+sec_str.lstrip	scripts/networkmenu.py	/^    return sec_str.lstrip()$/;"	f
+sel	scripts/networkmenu.py	/^    sel()$/;"	f
+sel.rstrip	scripts/networkmenu.py	/^    if not sel.rstrip():$/;"	f
+sel.strip	scripts/networkmenu.py	/^                  if ((str(i).strip() == str(sel.strip())$/;"	f
+sel.strip	scripts/networkmenu.py	/^                  if str(i).strip() == sel.strip()]$/;"	f
+sel.strip	scripts/networkmenu.py	/^            u"Selection was ambiguous: '{}'".format(str(sel.strip()))$/;"	f
+sel.strip	scripts/networkmenu.py	/^    devices = [i for i in devices if i.get_iface() == sel.strip()]$/;"	f
+sel.strip	scripts/networkmenu.py	/^    if not sel.strip():$/;"	f
+self.func	scripts/networkmenu.py	/^            self.func()$/;"	f
+ssid.get_data	scripts/networkmenu.py	/^    ret = NM.utils_ssid_to_utf8(ssid.get_data())$/;"	f
+sys.exit	scripts/networkmenu.py	/^        sys.exit()$/;"	f
+uuid.uuid4	scripts/networkmenu.py	/^    s_con.set_property(NM.SETTING_CONNECTION_UUID, str(uuid.uuid4()))$/;"	f
