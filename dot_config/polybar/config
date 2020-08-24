@@ -31,7 +31,7 @@ base = #586E75
 alert = #dc322f
 
 [solarized]
-base03  =    #002b36
+base03  =    #aaa002b36
 base02  =    #073642
 base01  =    #586e75
 base00  =    #657b83
