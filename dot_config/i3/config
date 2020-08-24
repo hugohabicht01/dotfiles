@@ -249,8 +249,8 @@ bindsym $mod+r mode "resize"
 
 #Startup snippets
 
-exec ~/.screenlayout/gaming.sh
-exec compton
+exec ~/.screenlayout/singlemonitor.sh
+exec picom -b --experimental-backends --dbus --config ~/.config/compton.conf
 exec nitrogen --restore
 exec setxkbmap eu && xmodmap ~/.Xmodmap
 exec mpd > /dev/null
