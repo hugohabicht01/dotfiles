@@ -250,7 +250,6 @@ bindsym $mod+r mode "resize"
 #Startup snippets
 
 exec ~/.screenlayout/singlemonitor.sh
-exec picom -b --experimental-backends --dbus --config ~/.config/compton.conf
 exec nitrogen --restore
 exec setxkbmap eu && xmodmap ~/.Xmodmap
 exec mpd > /dev/null
@@ -259,3 +258,4 @@ exec dunst &
 exec nm-applet & disown
 exec pasystray
 exec optimus-manager-qt & disown
+exec picom -b --experimental-backends --dbus --config ~/.config/awesome/configuration/picom.conf
