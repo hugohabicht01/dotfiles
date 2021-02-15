@@ -110,7 +110,7 @@ let g:fzf_action = {
 
 " Use ag as the search command and ignore everything from .gitignore
 " let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
-let $FZF_DEFAULT_COMMAND = "rg --files --hidden -g '!{node_modules,.git,.config,Downloads,steamapps}'"
+let $FZF_DEFAULT_COMMAND = "rg --files --hidden -g '!{node_modules,.git,Downloads,steamapps}'"
 
 " let g:livepreview_previewer = 'zathura'
 let g:vimtex_view_method = 'zathura'
