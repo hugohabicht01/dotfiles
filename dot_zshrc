@@ -10,7 +10,7 @@ fi
 export GOPATH=$HOME/GolandProjects
 #export GO111MODULE=on
 export ZSH="/home/linuxer/.oh-my-zsh"
-export PATH=$HOME/.local/bin:$GOPATH/bin:~/.npm-global/bin:/var/lib/snapd/snap/bin/:$HOME/.config/vifm/scripts:~/.cargo/bin/:/home/linuxer/.deta/bin:$HOME/.config/rofi/bin:$PATH
+export PATH=$HOME/.local/bin:$GOPATH/bin:~/.npm-global/bin:/var/lib/snapd/snap/bin/:$HOME/.config/vifm/scripts:~/.cargo/bin/:~/.config/rofi/bin:$PATH
 # Path to your oh-my-zsh installation.
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -89,7 +89,6 @@ plugins=(
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#586e75,underline"
 
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -127,6 +126,7 @@ alias ls='exa --colour=always --icons'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
+source /usr/share/zsh/scripts/zplug/init.zsh
 
 # Autojump
 [[ -s /home/linuxer/.autojump/etc/profile.d/autojump.sh ]] && source /home/linuxer/.autojump/etc/profile.d/autojump.sh
@@ -144,4 +144,3 @@ zplug load
 source /opt/google-cloud-sdk/path.zsh.inc
 source /opt/google-cloud-sdk/completion.zsh.inc
 
-source ~/.hail
