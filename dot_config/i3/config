@@ -59,12 +59,12 @@ bindsym $mod+Shift+Return exec kitty --class "floating"
 
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 #Own Shortcuts
 #bindsym $mod+d		exec rofi -show drun -lines 3 -eh 2 -bw 0 -width 100 -padding 400 -fullscreen
 #bindsym $mod+d		exec rofi -sidebar-mode -modi drun -lines 12 -padding  -width 60 -location 0 -show drun -columns 3 -font "Noto Sans 15"
-bindsym $mod+d		exec --no-startup-id ~/.local/bin/appsmenu
+bindsym $mod+d		exec --no-startup-id ~/.config/rofi/bin/launcher_misc
 bindsym $mod+b 		exec --no-startup-id ~/.local/bin/rofi-bluetooth
 bindsym $sup+b		exec alacritty -t "brightness" -d 50 3 -e ~/.local/bin/brightnessStart
 bindsym Print		exec --no-startup-id ~/.local/bin/scrotmenu
@@ -78,7 +78,7 @@ bindsym $mod+Ctrl+Shift+s       exec rofi -show ssh -theme solarized
 bindsym $mod+Shift+d	exec rofi -show run -theme solarized
 bindsym $mod+Shift+f 	exec kitty ~/.config/vifm/scripts/vifmrun
 bindsym $mod+Ctrl+Shift+f       exec nautilus
-bindsym $mod+Shift+b	exec brave
+bindsym $mod+Shift+b	exec rofi-buku
 bindsym $mod+Shift+m	exec alacritty -e neomutt
 bindsym $mod+Shift+s   	exec notify-send "Syncing mail" && mbsync -a && notify-send -i ~/Bilder/ok.png "Synced mail" || notify-send -i ~/Bilder/error.png   "Syncing not successful"
 bindsym $mod+Shift+a	exec alacritty -t "pulseaudio-mixer-cli" -e ~/.local/bin/pa-mixer-mk3.py
@@ -106,14 +106,17 @@ bindsym $mod+F12 exec amixer -q set Master 5%+ unmute
 bindsym $mod+F11 exec amixer -q set Master 5%- unmute
 bindsym $mod+F10 exec amixer -q set Master mute
 # These are the real bindings for normal keyboards
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+# bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+# bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+# bindsym XF86AudioMute        exec amixer -q set Master mute
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 '+1%'
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 '-1%'
 bindsym XF86AudioMute        exec amixer -q set Master mute
 
 # Spotify bindings
-bindsym XF86AudioPlay exec spotifymenu
-bindsym XF86AudioNext exec spotifycli --next
-bindsym XF86AudioPrev exec spotifycli --prev
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # mpd/mpc bindings
 # bindsym XF86AudioPlay exec mpc toggle
@@ -209,14 +212,15 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-
+bindsym Ctrl+Right workspace next
+bindsym Ctrl+Left workspace prev
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec ~/.local/bin/promptmenu -y "i3-msg exit" -q 'Do you want to exit i3' -o "Yes" -c "No"
+bindsym $mod+Shift+e exec ~/.config/rofi/bin/powermenu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -251,11 +255,12 @@ bindsym $mod+r mode "resize"
 
 exec ~/.screenlayout/singlemonitor.sh
 exec nitrogen --restore
-exec setxkbmap eu && xmodmap ~/.Xmodmap
-exec mpd > /dev/null
+exec setxkbmap us -variant colemak && xmodmap ~/.Xmodmap
+# exec mpd > /dev/null
 exec ~/.config/polybar/launch.sh
-exec dunst &
+exec dunst & disown
 exec nm-applet & disown
-exec pasystray
+exec pasystray & disown
 exec optimus-manager-qt & disown
-exec picom -b --experimental-backends --dbus --config ~/.config/awesome/configuration/picom.conf
+exec picom -b --experimental-backends --dbus --config ~/.config/compton.conf
+exec nextcloud & disown
