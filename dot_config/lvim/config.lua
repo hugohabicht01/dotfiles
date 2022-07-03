@@ -6,6 +6,9 @@ lvim.colorscheme = "tokyonight"
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- guifont for neovide
+vim.o.guifont = "Iosevka Nerd Font"
+
 -- special slashes for removed parts in git diffs
 vim.opt.fillchars = vim.opt.fillchars + 'diff:╱'
 
@@ -61,7 +64,7 @@ lvim.builtin.which_key.mappings["g"]["v"] = {
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+-- lvim.builtin.nvimtree.show_icons.git = 0
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -121,6 +124,35 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 
+local formatters = require "lvim.lsp.null-ls.formatters"
+-- local linters = require "lvim.lsp.null-ls.linters"
+
+formatters.setup({
+  {
+    exe = "eslint",
+    filetypes = {
+      "javascriptreact",
+      "javascript",
+      "typescriptreact",
+      "typescript",
+      "vue"
+    },
+  },
+})
+
+-- ESLint
+-- linters.setup({
+--   {
+--     exe = "eslint",
+--     filetypes = {
+--       "javascriptreact",
+--       "javascript",
+--       "typescriptreact",
+--       "typescript",
+--       "vue",
+--     },
+--   },
+-- })
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
 -- linters.setup {
