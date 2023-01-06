@@ -1,13 +1,60 @@
--- general
-lvim.log.level = "warn"
-lvim.format_on_save = true
-lvim.colorscheme = "tokyonight"
+-- remap function by prime
+local function bind(op, outer_opts)
+  outer_opts = outer_opts or { noremap = true }
+  return function(lhs, rhs, opts)
+    opts = vim.tbl_extend("force",
+      outer_opts,
+      opts or {}
+    )
+    vim.keymap.set(op, lhs, rhs, opts)
+  end
+end
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+local nmap = bind("n", { noremap = false })
+local nnoremap = bind("n")
+local vnoremap = bind("v")
+local xnoremap = bind("x")
+
+
+-- Remove the annoying warning when editing C files
+-- local notify = vim.notify
+-- vim.notify = function(msg, ...)
+--     if msg:match("warning: multiple different client offset_encodings detected for buffer, this is not supported yet neovim") then
+--         return
+--     end
+
+--     notify(msg, ...)
+-- end
+
+vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = { "*.astro" },
+      command = "set filetype=astro",
+})
+
+
+vim.api.nvim_create_autocmd("BufRead", {
+      pattern = { "*.astro" },
+      command = "set filetype=astro",
+})
+-- general
+-- lvim.builtin.breadcrumbs.active = true
+lvim.log.level = "warn"
+lvim.format_on_save = false
+lvim.colorscheme = "tokyonight"
+-- lvim.colorscheme = "catppuccin"
+-- vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+
+-- lvim.builtin.breadcrumbs.active = true
 
 -- guifont for neovide
 vim.o.guifont = "Iosevka Nerd Font"
+
+vim.wo.relativenumber = true
+vim.wo.number = true
+
+vim.opt.list = true
+-- vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "eol:↴"
 
 -- special slashes for removed parts in git diffs
 vim.opt.fillchars = vim.opt.fillchars + 'diff:╱'
@@ -24,6 +71,29 @@ lvim.builtin.gitsigns.opts.current_line_blame = true
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+
+-- Keybinds stolen from theprimeagen
+-- Moving visual selection up and down
+lvim.keys.visual_mode['J'] = ":m '>+1<CR>gv=gv"
+lvim.keys.visual_mode['K'] = ":m '<-2<CR>gv=gv"
+
+lvim.keys.normal_mode['n'] = "nzzzv"
+lvim.keys.normal_mode['N'] = "Nzzzv"
+
+lvim.keys.normal_mode["<C-d>"] = "<C-d>zz"
+lvim.keys.normal_mode["<C-u>"] = "<C-u>zz"
+
+-- greatest remap ever
+xnoremap("<leader>p", "\"_dP")
+-- next greatest remap ever : asbjornHaland
+nnoremap("<leader>y", "\"+y")
+vnoremap("<leader>y", "\"+y")
+nmap("<leader>Y", "\"+Y")
+
+nnoremap("<leader>d", "\"_d")
+vnoremap("<leader>d", "\"_d")
+
+vnoremap("<leader>d", "\"_d")
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -59,9 +129,23 @@ lvim.builtin.which_key.mappings["g"]["v"] = {
   "Diffview"
 }
 
+lvim.builtin.which_key.mappings["b"]["n"] = {
+  ":bn<cr>",
+  "Next buffer"
+}
+
+lvim.builtin.which_key.mappings["b"]["p"] = {
+  ":bp<cr>",
+  "Previous buffer"
+}
+
+lvim.builtin.which_key.mappings["b"]["k"] = {
+  ":BufferKill<cr>",
+  "Kill buffer"
+}
+
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 -- lvim.builtin.nvimtree.show_icons.git = 0
@@ -108,28 +192,26 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
--- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { command = "black", filetypes = { "python" } },
---   { command = "isort", filetypes = { "python" } },
---   {
---     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
-
 local formatters = require "lvim.lsp.null-ls.formatters"
--- local linters = require "lvim.lsp.null-ls.linters"
+local linters = require "lvim.lsp.null-ls.linters"
+local code_actions = require "lvim.lsp.null-ls.code_actions"
+
+code_actions.setup {
+  {
+    exe = "eslint_d",
+    filetypes = {
+      "javascriptreact",
+      "javascript",
+      "typescriptreact",
+      "typescript",
+      "vue"
+    },
+  },
+}
 
 formatters.setup({
   {
-    exe = "eslint",
+    exe = "eslint_d",
     filetypes = {
       "javascriptreact",
       "javascript",
@@ -140,46 +222,40 @@ formatters.setup({
   },
 })
 
--- ESLint
--- linters.setup({
---   {
---     exe = "eslint",
---     filetypes = {
---       "javascriptreact",
---       "javascript",
---       "typescriptreact",
---       "typescript",
---       "vue",
---     },
---   },
--- })
--- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
--- linters.setup {
---   { command = "flake8", filetypes = { "python" } },
---   {
---     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "shellcheck",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--severity", "warning" },
---   },
---   {
---     command = "codespell",
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "javascript", "python" },
---   },
--- }
+linters.setup({
+  {
+    exe = "eslint_d",
+    filetypes = {
+      "javascriptreact",
+      "javascript",
+      "typescriptreact",
+      "typescript",
+      "vue",
+    },
+  },
+})
 
 -- Additional Plugins
 lvim.plugins = {
-  { "folke/tokyonight.nvim" },
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
   {
+    "folke/todo-comments.nvim",
+    event = "BufRead",
+    config = function()
+      require("todo-comments").setup()
+    end,
+  },
+  {
     "tpope/vim-surround"
+  },
+  {
+    "tpope/vim-repeat",
+  },
+  {
+    "tpope/vim-fugitive",
   },
   {
     "dracula/vim"
@@ -193,8 +269,124 @@ lvim.plugins = {
   },
   {
     "tpope/vim-sleuth"
-  }
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    config = function()
+      require("treesitter-context").setup {
+        enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+        throttle = true, -- Throttles plugin updates (may improve performance)
+        max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+        patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+          -- For all filetypes
+          -- Note that setting an entry here replaces all other patterns for this entry.
+          -- By setting the 'default' entry below, you can control which nodes you want to
+          -- appear in the context window.
+          default = {
+            'class',
+            'function',
+            'method',
+            'if',
+            'for',
+            'while'
+          },
+          json = {
+            'pair',
+          },
+        },
+      }
+    end
+  },
+  {
+    "folke/noice.nvim",
+    event = "VimEnter",
+    config = function()
+      require("noice").setup()
+    end,
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   event = "BufRead",
+  --   config = function()
+  --     local opts = {
+  --       char = "▏",
+  --       -- filetype_exclude = {
+  --       --   "alpha",
+  --       --   "help",
+  --       --   "terminal",
+  --       --   "dashboard",
+  --       --   "lspinfo",
+  --       --   "lsp-installer",
+  --       --   "mason",
+  --       -- },
+  --       buftype_exclude = { "terminal" },
+  --       -- bufname_exclude = { "config.lua" },
+
+  --       -- show_trailing_blankline_indent = false,
+  --       -- show_first_indent_level = false,
+  --       space_char_blankline = " ",
+  --       show_current_context = true,
+  --       show_current_context_start = true,
+  --       use_treesitter = true,
+  --     }
+
+  --     require("indent_blankline").setup(opts)
+  --   end
+  -- },
+  {
+    "kevinhwang91/nvim-bqf",
+    event = { "BufRead", "BufNew" },
+    config = function()
+      require("bqf").setup({
+        auto_enable = true,
+        preview = {
+          win_height = 12,
+          win_vheight = 12,
+          delay_syntax = 80,
+          border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
+        },
+        func_map = {
+          vsplit = "",
+          ptogglemode = "z,",
+          stoggleup = "",
+        },
+        filter = {
+          fzf = {
+            action_for = { ["ctrl-s"] = "split" },
+            extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+          },
+        },
+      })
+    end,
+  },
+  -- { "zbirenbaum/copilot.lua",
+  --   event = { "VimEnter" },
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("copilot").setup {
+  --         plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
+  --       }
+  --     end, 100)
+  --   end,
+  -- },
+
+  -- { "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua", "nvim-cmp" },
+  -- },
 }
+
+
+-- Can not be placed into the config method of the plugins.
+-- lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
+-- table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
