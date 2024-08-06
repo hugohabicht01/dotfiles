@@ -15,6 +15,18 @@ local nnoremap = bind("n")
 local vnoremap = bind("v")
 local xnoremap = bind("x")
 
+table.insert(lvim.plugins, {
+  "zbirenbaum/copilot-cmp",
+  event = "InsertEnter",
+  dependencies = { "zbirenbaum/copilot.lua" },
+  config = function()
+    vim.defer_fn(function()
+      require("copilot").setup()     -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
+      require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+    end, 100)
+  end,
+})
+
 
 -- Remove the annoying warning when editing C files
 -- local notify = vim.notify
@@ -27,14 +39,14 @@ local xnoremap = bind("x")
 -- end
 
 vim.api.nvim_create_autocmd("BufEnter", {
-      pattern = { "*.astro" },
-      command = "set filetype=astro",
+  pattern = { "*.astro" },
+  command = "set filetype=astro",
 })
 
 
 vim.api.nvim_create_autocmd("BufRead", {
-      pattern = { "*.astro" },
-      command = "set filetype=astro",
+  pattern = { "*.astro" },
+  command = "set filetype=astro",
 })
 -- general
 -- lvim.builtin.breadcrumbs.active = true
@@ -84,7 +96,8 @@ lvim.keys.normal_mode["<C-d>"] = "<C-d>zz"
 lvim.keys.normal_mode["<C-u>"] = "<C-u>zz"
 
 -- greatest remap ever
-xnoremap("<leader>p", "\"_dP")
+xnoremap("<leader>p", "\"bdP")
+vnoremap("<leader>p", "\"bdP")
 -- next greatest remap ever : asbjornHaland
 nnoremap("<leader>y", "\"+y")
 vnoremap("<leader>y", "\"+y")
@@ -144,6 +157,11 @@ lvim.builtin.which_key.mappings["b"]["k"] = {
   "Kill buffer"
 }
 
+lvim.builtin.which_key.mappings["c"] = {
+  ":NoiceDismiss<cr>",
+  "Clear message"
+}
+
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.terminal.active = true
@@ -192,51 +210,118 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 -- end
 
-local formatters = require "lvim.lsp.null-ls.formatters"
-local linters = require "lvim.lsp.null-ls.linters"
-local code_actions = require "lvim.lsp.null-ls.code_actions"
+-- local formatters = require "lvim.lsp.null-ls.formatters"
+-- local linters = require "lvim.lsp.null-ls.linters"
+-- local code_actions = require "lvim.lsp.null-ls.code_actions"
 
-code_actions.setup {
-  {
-    exe = "eslint_d",
-    filetypes = {
-      "javascriptreact",
-      "javascript",
-      "typescriptreact",
-      "typescript",
-      "vue"
-    },
-  },
+local null_ls = require("null-ls")
+
+-- code action sources
+local code_actions = null_ls.builtins.code_actions
+
+-- diagnostic sources
+local diagnostics = null_ls.builtins.diagnostics
+
+-- formatting sources
+local formatting = null_ls.builtins.formatting
+
+-- hover sources
+local hover = null_ls.builtins.hover
+
+-- completion sources
+local completion = null_ls.builtins.completion
+
+local sources = {
+  formatting.prettier,
+  formatting.black,
+  diagnostics.eslint_d.with({
+    condition = function(utils)
+      return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
+    end,
+  }),
+  diagnostics.mypy,
+  diagnostics.flake8,
+  code_actions.eslint_d.with({
+    condition = function(utils)
+      return utils.root_has_file({ ".eslintrc", ".eslintrc.js", ".eslintrc.json" })
+    end,
+  }),
 }
 
-formatters.setup({
-  {
-    exe = "eslint_d",
-    filetypes = {
-      "javascriptreact",
-      "javascript",
-      "typescriptreact",
-      "typescript",
-      "vue"
-    },
-  },
-})
+null_ls.setup({ sources = sources })
+-- code_actions.setup {
+--   {
+--     exe = "eslint_d",
+--     filetypes = {
+--       "javascriptreact",
+--       "javascript",
+--       "typescriptreact",
+--       "typescript",
+--       "vue"
+--     },
+--   },
+-- }
 
-linters.setup({
-  {
-    exe = "eslint_d",
-    filetypes = {
-      "javascriptreact",
-      "javascript",
-      "typescriptreact",
-      "typescript",
-      "vue",
-    },
-  },
-})
+-- formatters.setup({
+--   {
+--     exe = "prettier",
+--     filetypes = {
+--       "javascriptreact",
+--       "javascript",
+--       "typescriptreact",
+--       "typescript",
+--       "vue"
+--     },
+--   },
+--   {
+--     exe = "eslint_d",
+--     filetypes = {
+--       "javascriptreact",
+--       "javascript",
+--       "typescriptreact",
+--       "typescript",
+--       "vue"
+--     },
+--   },
+-- })
+
+-- linters.setup({
+--   {
+--     exe = "eslint_d",
+--     filetypes = {
+--       "javascriptreact",
+--       "javascript",
+--       "typescriptreact",
+--       "typescript",
+--       "vue",
+--     },
+--   },
+--   {
+--     exe = "pylint"
+--   }
+-- })
 
 -- Additional Plugins
 lvim.plugins = {
+  -- {
+  --   "nvim-treesitter/nvim-treesitter-textobjects",
+  --   config = function()
+  --     require("nvim-treesitter.configs").setup {
+  --       textobjects = {
+  --         select = {
+  --           enable = true,
+  --           lookahead = true,
+  --           keymaps = {
+  --             ["ip"] = { query = "@parameter.inner", desc = "Select inner parameter" },
+  --             ["ap"] = { query = "@parameter.outer", desc = "Select outer parameter" },
+  --           },
+  --           include_surrounding_whitespace = true,
+  --         }
+  --       }
+  --     }
+  --   end
+  -- },
+  -- { 'dmmulroy/ts-error-translator.nvim' },
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
@@ -274,10 +359,11 @@ lvim.plugins = {
     "nvim-treesitter/nvim-treesitter-context",
     config = function()
       require("treesitter-context").setup {
-        enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+        enable = true,   -- Enable this plugin (Can be enabled/disabled later via commands)
         throttle = true, -- Throttles plugin updates (may improve performance)
-        max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-        patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+        max_lines = 0,   -- How many lines the window should span. Values <= 0 mean no limit.
+        patterns = {
+          -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
           -- For all filetypes
           -- Note that setting an entry here replaces all other patterns for this entry.
           -- By setting the 'default' entry below, you can control which nodes you want to
@@ -301,9 +387,18 @@ lvim.plugins = {
     "folke/noice.nvim",
     event = "VimEnter",
     config = function()
-      require("noice").setup()
+      require("noice").setup({
+        lsp = {
+          hover = {
+            enabled = false
+          },
+          signature = {
+            enabled = false
+          }
+        }
+      })
     end,
-    requires = {
+    dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
       -- OPTIONAL:
@@ -312,35 +407,6 @@ lvim.plugins = {
       "rcarriga/nvim-notify",
     }
   },
-  -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   event = "BufRead",
-  --   config = function()
-  --     local opts = {
-  --       char = "▏",
-  --       -- filetype_exclude = {
-  --       --   "alpha",
-  --       --   "help",
-  --       --   "terminal",
-  --       --   "dashboard",
-  --       --   "lspinfo",
-  --       --   "lsp-installer",
-  --       --   "mason",
-  --       -- },
-  --       buftype_exclude = { "terminal" },
-  --       -- bufname_exclude = { "config.lua" },
-
-  --       -- show_trailing_blankline_indent = false,
-  --       -- show_first_indent_level = false,
-  --       space_char_blankline = " ",
-  --       show_current_context = true,
-  --       show_current_context_start = true,
-  --       use_treesitter = true,
-  --     }
-
-  --     require("indent_blankline").setup(opts)
-  --   end
-  -- },
   {
     "kevinhwang91/nvim-bqf",
     event = { "BufRead", "BufNew" },
@@ -381,6 +447,44 @@ lvim.plugins = {
   -- { "zbirenbaum/copilot-cmp",
   --   after = { "copilot.lua", "nvim-cmp" },
   -- },
+  { 'nvim-telescope/telescope-ui-select.nvim' },
+  -- install without yarn or npm
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    init = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  },
+  { "SeniorMars/typst.nvim" },
+  { "catppuccin/nvim",                        name = "catppuccin" },
+  {
+    "nvim-java/nvim-java",
+    dependencies = {
+      'nvim-java/lua-async-await',
+      'nvim-java/nvim-java-refactor',
+      'nvim-java/nvim-java-core',
+      'nvim-java/nvim-java-test',
+      'nvim-java/nvim-java-dap',
+      'MunifTanjim/nui.nvim',
+      'neovim/nvim-lspconfig',
+      'mfussenegger/nvim-dap',
+      {
+        'williamboman/mason.nvim',
+        opts = {
+          registries = {
+            'github:nvim-java/mason-registry',
+            'github:mason-org/mason-registry',
+          },
+        },
+      }
+    },
+  },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  }
 }
 
 

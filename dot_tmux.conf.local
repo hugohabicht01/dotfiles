@@ -69,28 +69,30 @@ tmux_conf_24b_colour=auto
 # tmux_conf_theme_colour_16="#d70000"   # red
 # tmux_conf_theme_colour_17="#e4e4e4"   # white
 
+set -g @catppuccin_flavour 'macchiato' # or frappe, macchiato, mocha
+
 # dracula theme
-tmux_conf_theme_colour_0="default"    # background
-tmux_conf_theme_colour_1="#282a36"    # background
-tmux_conf_theme_colour_2="#303030"    # gray
-tmux_conf_theme_colour_3="#f8f8f2"    # foreground
-tmux_conf_theme_colour_4="#8be9fd"    # cyan
-tmux_conf_theme_colour_5="#f1fa8c"    # yellow
-tmux_conf_theme_colour_6="#282a36"    # background
-tmux_conf_theme_colour_7="#f8f8f2"    # foreground
-tmux_conf_theme_colour_8="#282a36"    # background
-tmux_conf_theme_colour_9="#bd93f9"    # purple
-tmux_conf_theme_colour_10="#6272a4"   # comment
-tmux_conf_theme_colour_11="#50fa7b"   # green
-tmux_conf_theme_colour_12="#f8f8f2"   # foreground
-tmux_conf_theme_colour_13="#f8f8f2"   # foreground
-tmux_conf_theme_colour_14="#282a36"   # background
-tmux_conf_theme_colour_15="#44475a"   # selection
-tmux_conf_theme_colour_16="#6272a4"   # comment
-tmux_conf_theme_colour_17="#bd93f9"   # purple
-tmux_conf_theme_colour_18="#ff5555"   # red
-tmux_conf_theme_colour_19="#ffb86c"   # orange
-tmux_conf_theme_colour_20="#ff79c6"   # pink
+# tmux_conf_theme_colour_0="default"    # background
+# tmux_conf_theme_colour_1="#282a36"    # background
+# tmux_conf_theme_colour_2="#303030"    # gray
+# tmux_conf_theme_colour_3="#f8f8f2"    # foreground
+# tmux_conf_theme_colour_4="#8be9fd"    # cyan
+# tmux_conf_theme_colour_5="#f1fa8c"    # yellow
+# tmux_conf_theme_colour_6="#282a36"    # background
+# tmux_conf_theme_colour_7="#f8f8f2"    # foreground
+# tmux_conf_theme_colour_8="#282a36"    # background
+# tmux_conf_theme_colour_9="#bd93f9"    # purple
+# tmux_conf_theme_colour_10="#6272a4"   # comment
+# tmux_conf_theme_colour_11="#50fa7b"   # green
+# tmux_conf_theme_colour_12="#f8f8f2"   # foreground
+# tmux_conf_theme_colour_13="#f8f8f2"   # foreground
+# tmux_conf_theme_colour_14="#282a36"   # background
+# tmux_conf_theme_colour_15="#44475a"   # selection
+# tmux_conf_theme_colour_16="#6272a4"   # comment
+# tmux_conf_theme_colour_17="#bd93f9"   # purple
+# tmux_conf_theme_colour_18="#ff5555"   # red
+# tmux_conf_theme_colour_19="#ffb86c"   # orange
+# tmux_conf_theme_colour_20="#ff79c6"   # pink
 
 # default theme (ansi)
 #tmux_conf_theme_colour_1="colour0"
@@ -375,6 +377,11 @@ bind-key -n C-k send-keys -R \; clear-history
 # set -g prefix C-a
 # bind C-a send-prefix
 
+# # fzf url picker
+unbind-key U
+set -g @fzf-url-bind 'U'
+set -g @fzf-url-fzf-options '-w 50% -h 50% --multi -0 --no-preview --no-border'
+
 # move status line to top
 #set -g status-position top
 
@@ -419,6 +426,8 @@ tmux_conf_uninstall_plugins_on_reload=true
 #set -g @plugin 'tmux-plugins/tmux-resurrect'
 #set -g @plugin 'tmux-plugins/tmux-continuum'
 #set -g @continuum-restore 'on'
+set -g @plugin 'catppuccin/tmux'
+set -g @plugin 'wfxr/tmux-fzf-url'
 
 
 # -- custom variables ----------------------------------------------------------

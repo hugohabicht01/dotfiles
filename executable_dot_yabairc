@@ -17,7 +17,6 @@
 # global settings
 # yabai -m config mouse_follows_focus          on
 yabai -m config mouse_follows_focus          off
-yabai -m config focus_follows_mouse          off
 yabai -m config window_origin_display        default
 yabai -m config window_placement             second_child
 yabai -m config window_topmost               off
@@ -33,9 +32,12 @@ yabai -m config mouse_modifier               fn
 yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 yabai -m config mouse_drop_action            swap
+yabai -m config focus_follows_mouse off
 
-# Automatically inject scripting-addition
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# .. more yabai startup stuff
 
 # general space settings
 yabai -m config layout                       bsp
@@ -48,5 +50,9 @@ yabai -m config window_gap     20
 
 yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
 yabai -m rule --add label="Postman" app="^Postman$" title=".*" manage=off
+yabai -m rule --add label="BombSweeper" app="^.*Driver.*$" title=".*" manage=off
+yabai -m rule --add label="The Solar System" app="^.*Main.*$" title=".*" manage=off
+yabai -m rule --add label="FormPreview" app="^.*FormPreview.*$" title=".*" manage=off
+yabai -m rule --add app='^GIMP' title!='(^GNU|GIMP|Curves$)' manage=off
 
 echo "yabai configuration loaded.."
