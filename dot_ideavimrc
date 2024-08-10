@@ -1,0 +1,9 @@
+map gh <Action>(ShowErrorDescription)
+set number relativenumber
+
+set surround
+set commentary
+set ignorecase
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap J :m '<-2<CR>gv=gv
