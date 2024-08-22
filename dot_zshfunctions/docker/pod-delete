@@ -1,0 +1,12 @@
+function pod-delete() {
+  local namespace
+  local pod
+  local selected
+  selected=$(kubectl get pods --all-namespaces | sed 1d | fzf -q "$1")
+  namespace=$(echo $selected | awk '{print $1}')
+  pod=$(echo $selected | awk '{print $2}')
+
+  [ -n "$selected" ] || return
+
+  kubectl delete pod $pod -n $namespace --now
+}

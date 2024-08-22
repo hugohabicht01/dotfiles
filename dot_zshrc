@@ -5,6 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+setopt histignorespace
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export GOPATH=$HOME/GolandProjects
@@ -19,9 +21,10 @@ export PATH=$HOME/.local/bin:$GOPATH/bin:~/.npm-global/bin:/var/lib/snapd/snap/b
 ZSH_THEME="powerlevel10k/powerlevel10k"
 # TODO: Should maybe add another directory for fzf commands and seperate
 # fzf commands from normal functions
+source <(fzf --zsh)
 
 fpath=(~/.zshfunctions/* $fpath)
-autoload docker-stop docker-attach docker-remove  docker-start pacmaninstall aurinstall aurremove
+autoload docker-stop docker-attach docker-remove  docker-start pacmaninstall aurinstall aurremove pod-delete
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -104,6 +107,9 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 alias musicdl=youtube-dl -x --add-metadata -f 'best/bestaudio' --ignore-config
 alias ls='eza --colour=always --icons'
+alias ll="ls -la"
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
 # Git aliases
 # alias gitSwitchBranch="git checkout $(git branch -r -l | fzf | sed 's/origin\///g' )"
@@ -130,6 +136,8 @@ autoload -U compinit && compinit -u
 
 bindkey '^ ' autosuggest-accept
 
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
@@ -146,3 +154,8 @@ zplug load
 # source /opt/google-cloud-sdk/path.zsh.inc
 # source /opt/google-cloud-sdk/completion.zsh.inc
 
+export PATH="$HOME/.rd/bin:$PATH"
+
+eval "$(fnm env --use-on-cd)"
+
+source <(kubectl completion zsh)
