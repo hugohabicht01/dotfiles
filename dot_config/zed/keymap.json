@@ -1,0 +1,39 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-a": "assistant::ToggleFocus"
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space l r": "editor::Rename",
+      "space l f": "editor::Format",
+      "space f": "file_finder::Toggle",
+      "space s t": "pane::DeploySearch",
+      "space g g": ["task::Spawn", { "task_name": "Lazygit" }],
+      "space g o": ["task::Spawn", { "task_name": "Pull Request" }]
+    }
+  },
+  {
+    "context": "ContextEditor > Editor",
+    "bindings": {
+      "shift-enter": "assistant::Assist"
+    }
+  }
+]
