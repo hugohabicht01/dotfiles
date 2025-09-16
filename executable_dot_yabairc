@@ -48,11 +48,12 @@ yabai -m config left_padding   20
 yabai -m config right_padding  20
 yabai -m config window_gap     20
 
-yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
-yabai -m rule --add label="Postman" app="^Postman$" title=".*" manage=off
-yabai -m rule --add label="BombSweeper" app="^.*Driver.*$" title=".*" manage=off
-yabai -m rule --add label="The Solar System" app="^.*Main.*$" title=".*" manage=off
-yabai -m rule --add label="FormPreview" app="^.*FormPreview.*$" title=".*" manage=off
-yabai -m rule --add app='^GIMP' title!='(^GNU|GIMP|Curves$)' manage=off
+# yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
+# yabai -m rule --add label="Postman" app="^Postman$" title=".*" manage=off
+# yabai -m rule --add label="BombSweeper" app="^.*Driver.*$" title=".*" manage=off
+# yabai -m rule --add label="The Solar System" app="^.*Main.*$" title=".*" manage=off
+# yabai -m rule --add label="FormPreview" app="^.*FormPreview.*$" title=".*" manage=off
+# yabai -m rule --add app='^GIMP' title!='(^GNU|GIMP|Curves$)' manage=off
+# yabai -m rule --add app='^VLC media player' manage=off
 
 echo "yabai configuration loaded.."
