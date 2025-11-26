@@ -90,6 +90,7 @@ plugins=(
 # zsh-autosuggestions settings
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#586e75,underline"
+bindkey '^ ' autosuggest-accept
 
 
 
@@ -110,6 +111,7 @@ alias ls='eza --colour=always --icons'
 alias ll="ls -la"
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias mlplayground='cd ~/playground && source .venv/bin/activate && python3 -i -c "import numpy as np; import matplotlib.pyplot as plt"'
 
 # Git aliases
 # alias gitSwitchBranch="git checkout $(git branch -r -l | fzf | sed 's/origin\///g' )"
@@ -159,3 +161,21 @@ export PATH="$HOME/.rd/bin:$PATH"
 eval "$(fnm env --use-on-cd)"
 
 source <(kubectl completion zsh)
+#compdef cargo
+if command -v rustc >/dev/null 2>&1; then
+	source "$(rustc --print sysroot)"/share/zsh/site-functions/_cargo
+fi
+
+# bun completions
+[ -s "/Users/me/.bun/_bun" ] && source "/Users/me/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/me/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
